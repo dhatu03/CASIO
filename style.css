@@ -1,0 +1,317 @@
+:root {
+    --body-color: #d8d8d8;
+    --body-gradient: linear-gradient(135deg, #e6e6e6 0%, #c4c4c4 100%);
+    --screen-bg: #c9d8d6;
+    --screen-border: #222;
+    --key-black: #2a2a2a;
+    --key-black-gradient: linear-gradient(to bottom, #3a3a3a, #1a1a1a);
+    --key-gray: #f0f0f0;
+    --key-gray-gradient: linear-gradient(to bottom, #ffffff, #d9d9d9);
+    --key-red: #ff9980;
+    --key-red-gradient: linear-gradient(to bottom, #ffae99, #e68a73);
+    --key-orange: #ff9900;
+    --text-primary: #000;
+    --text-shift: #997b19;
+    --text-alpha: #d63384;
+}
+
+body {
+    background-color: #333;
+    font-family: 'Segoe UI', user-select, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.calculator-container {
+    width: 380px;
+    height: 740px;
+    background: var(--body-gradient);
+    border-radius: 25px;
+    box-shadow:
+        0 0 0 1px #999,
+        0 15px 35px rgba(0, 0, 0, 0.6),
+        inset 0 2px 3px rgba(255, 255, 255, 0.7);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid #aaa;
+}
+
+.brand-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 10px 10px 10px;
+    font-weight: bold;
+    color: #444;
+}
+
+.brand-name {
+    font-size: 24px;
+    font-style: italic;
+    font-family: serif;
+}
+
+.model-name {
+    font-size: 14px;
+}
+
+.type-name {
+    font-size: 10px;
+}
+
+.display-screen {
+    background-color: #9cb8b3;
+    border: 8px solid #333;
+    border-radius: 10px;
+    height: 100px;
+    margin-bottom: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.indicators {
+    font-size: 10px;
+    height: 12px;
+}
+
+.history-line {
+    font-size: 16px;
+    min-height: 20px;
+    text-align: left;
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+.result-line {
+    font-size: 28px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.solar-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.solar-cells {
+    width: 60px;
+    height: 25px;
+    background: #4a3b2a;
+    border: 1px solid #666;
+    border-radius: 4px;
+}
+
+.solar-text {
+    font-size: 10px;
+    color: #555;
+}
+
+.keypad-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.key {
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow:
+        0 3px 0 #888,
+        0 4px 5px rgba(0, 0, 0, 0.4);
+    transition: top 0.1s, box-shadow 0.1s;
+    position: relative;
+    top: 0;
+    margin-bottom: 4px;
+    overflow: visible;
+}
+
+/* Shift Label (Gold) - Top Left */
+.key[data-shift]::before {
+    content: attr(data-shift);
+    position: absolute;
+    top: -12px;
+    left: 2px;
+    font-size: 10px;
+    color: #997b19;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* Alpha Label (Pink) - Top Right */
+.key[data-alpha]::after {
+    content: attr(data-alpha);
+    position: absolute;
+    top: -12px;
+    right: 2px;
+    font-size: 10px;
+    color: #d63384;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.key:active {
+    top: 3px;
+    box-shadow:
+        0 0 0 #888,
+        inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.function-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.round {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 10px;
+}
+
+.small {
+    width: 35px;
+    height: 35px;
+}
+
+.shift-key {
+    background: #dcd8c0;
+    color: #8a6d0b;
+    box-shadow: 0 3px 0 #aaa, 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.alpha-key {
+    background: #dcd8c0;
+    color: #b02a66;
+    box-shadow: 0 3px 0 #aaa, 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.mode-key,
+.on-key {
+    background: var(--key-black-gradient);
+    color: white;
+    box-shadow: 0 3px 0 #111, 0 4px 4px rgba(0, 0, 0, 0.5);
+    border: 1px solid #000;
+}
+
+
+.directional-pad {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.d-pad-circle {
+    width: 70px;
+    height: 70px;
+    background-color: #d0d0d0;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    border: 1px solid #bbb;
+}
+
+.d-pad-btn {
+    position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 10px;
+    color: #333;
+}
+
+.d-pad-btn.up {
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.d-pad-btn.down {
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.d-pad-btn.left {
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.d-pad-btn.right {
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.scientific-pad {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.scientific-pad .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.oval {
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.black {
+    background: var(--key-black-gradient);
+    color: white;
+    box-shadow: 0 3px 0 #111, 0 4px 4px rgba(0, 0, 0, 0.5);
+    border: 1px solid #000;
+}
+
+.main-pad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.rectangular {
+    height: 40px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.gray {
+    background: var(--key-gray-gradient);
+    color: black;
+    box-shadow: 0 3px 0 #bbb, 0 4px 4px rgba(0, 0, 0, 0.3);
+    border: 1px solid #ccc;
+}
+
+.red {
+    background: var(--key-red-gradient);
+    color: white;
+    box-shadow: 0 3px 0 #cc7a66, 0 4px 4px rgba(0, 0, 0, 0.3);
+    border: 1px solid #d98e7d;
+}

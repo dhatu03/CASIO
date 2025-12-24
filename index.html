@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASIO calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.0.0/math.js"></script>
+</head>
+
+<body>
+    <div class="calculator-container">
+        <div class="calculator-body">
+            <div class="brand-header">
+                <span class="brand-name">CASIO</span>
+                <span class="model-name">fx-991ES PLUS</span>
+                <span class="type-name">NATURAL-V.P.A.M.</span>
+            </div>
+
+            <div class="display-screen" id="display">
+                <div class="indicators" id="indicators">D</div>
+                <div class="history-line" id="history-line"></div>
+                <div class="result-line" id="result-line">0</div>
+            </div>
+
+            <div class="solar-panel">
+                <div class="solar-cells"></div>
+                <div class="solar-text">TWO WAY POWER</div>
+            </div>
+
+            <div class="keypad-container">
+                <!-- Top Function Keys (Shift, Alpha, Mode, On) -->
+                <div class="function-row top-row">
+                    <button class="key round small shift-key" data-key="SHIFT">SHIFT</button>
+                    <button class="key round small alpha-key" data-key="ALPHA">ALPHA</button>
+                    <div class="directional-pad">
+                        <div class="d-pad-circle">
+                            <button class="d-pad-btn up" data-key="UP">▲</button>
+                            <button class="d-pad-btn left" data-key="LEFT">◀</button>
+                            <button class="d-pad-btn center" disabled></button>
+                            <button class="d-pad-btn right" data-key="RIGHT">▶</button>
+                            <button class="d-pad-btn down" data-key="DOWN">▼</button>
+                        </div>
+                    </div>
+                    <button class="key round small mode-key" data-key="MODE">MODE<br>SETUP</button>
+                    <button class="key round small on-key" data-key="ON">ON</button>
+                </div>
+
+                <!-- Scientific Function Keys -->
+                <div class="scientific-pad">
+                    <div class="row">
+                        <button class="key oval black" data-key="CALC">CALC</button>
+                        <button class="key oval black" data-key="INTEGRAL">∫dx</button>
+                        <button class="key oval black" data-key="X-1">x⁻¹</button>
+                        <button class="key oval black" data-key="LOG">log</button>
+                        <button class="key oval black" data-key="LN">ln</button>
+                        <button class="key oval black" data-key="X2">x²</button>
+                    </div>
+                    <div class="row">
+                        <button class="key oval black" data-key="FRACT">a b/c</button>
+                        <button class="key oval black" data-key="SQRT">√</button>
+                        <button class="key oval black" data-key="ISQRT">x²</button>
+                        <button class="key oval black" data-key="POW">x^</button>
+                        <button class="key oval black" data-key="LOG10">log</button>
+                        <button class="key oval black" data-key="SIN">sin</button>
+                    </div>
+                    <div class="row">
+                        <button class="key oval black" data-key="-">(-)</button>
+                        <button class="key oval black" data-key="DEG">°' "</button>
+                        <button class="key oval black" data-key="HYP">hyp</button>
+                        <button class="key oval black" data-key="COS">cos</button>
+                        <button class="key oval black" data-key="TAN">tan</button>
+                        <button class="key oval black" data-key="RCL">RCL</button>
+                    </div>
+                    <div class="row">
+                        <button class="key oval black" data-key="ENG" data-shift="i">ENG</button>
+                        <button class="key oval black" data-key="(" data-shift="[">(</button>
+                        <button class="key oval black" data-key=")" data-shift="]"> )</button>
+                        <button class="key oval black" data-key="SD" data-shift=",">S⇔D</button>
+                        <button class="key oval black" data-key="M+" data-shift=";">M+</button>
+                    </div>
+                </div>
+
+                <!-- Main Number Pad + Basic Ops -->
+                <div class="main-pad">
+                    <button class="key rectangular gray" data-key="7">7</button>
+                    <button class="key rectangular gray" data-key="8">8</button>
+                    <button class="key rectangular gray" data-key="9">9</button>
+                    <button class="key rectangular red" data-key="DEL">DEL</button>
+                    <button class="key rectangular red" data-key="AC">AC</button>
+
+                    <button class="key rectangular gray" data-key="4">4</button>
+                    <button class="key rectangular gray" data-key="5">5</button>
+                    <button class="key rectangular gray" data-key="6">6</button>
+                    <button class="key rectangular gray" data-key="MULTIPLY">×</button>
+                    <button class="key rectangular gray" data-key="DIVIDE">÷</button>
+
+                    <button class="key rectangular gray" data-key="1">1</button>
+                    <button class="key rectangular gray" data-key="2">2</button>
+                    <button class="key rectangular gray" data-key="3">3</button>
+                    <button class="key rectangular gray" data-key="PLUS">+</button>
+                    <button class="key rectangular gray" data-key="MINUS">-</button>
+
+                    <button class="key rectangular gray" data-key="0">0</button>
+                    <button class="key rectangular gray" data-key=".">.</button>
+                    <button class="key rectangular gray" data-key="EXP">×10ˣ</button>
+                    <button class="key rectangular gray" data-key="ANS">Ans</button>
+                    <button class="key rectangular gray" data-key="EQUALS">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
